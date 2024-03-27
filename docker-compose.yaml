@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  ia-code:
+    build: image/
+    ports:
+      - "8000:11434"
+    volumes:
+      - .:/code
+      - ./ollama/ollama:/root/.ollama
+    container_name: ia-code
+    pull_policy: always
+    tty: true
+    restart: always
+    networks:
+      - ia-code
+
+
+networks:
+  ia-code:
+    external: false
